@@ -7,8 +7,8 @@ export default function handleProfileSignup() {
     .then((data) => {
       const item = Object.assign({}, ...data);
       const result = `${item.body} ${item.firstName} ${item.lastName}`;
-	  console.log(result);
-	  return result;
+      console.log(result);
+      return result;
     })
     .catch((error) => {
       console.error('Signup system offline');
