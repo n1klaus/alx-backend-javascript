@@ -16,7 +16,6 @@ module.exports = {
   },
   plugins: ["jest"],
   rules: {
-    "import/extensions": "off",
     "no-console": "off",
     "no-shadow": "off",
     "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
