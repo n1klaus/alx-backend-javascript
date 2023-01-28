@@ -4,15 +4,17 @@ export default function handleProfileSignup() {
   const upload = uploadPhoto();
   const user = createUser();
   const resp = Promise.all([upload, user])
-    .then((data) => {
-      const item = Object.assign({}, ...data);
-      const result = `${item.body} ${item.firstName} ${item.lastName}`;
-      console.log(result);
-      return result;
-    })
-    .catch((error) => {
-      console.error('Signup system offline');
-      return error;
-    });
+    .then(
+      (data) => {
+        const item = Object.assign({}, ...data);
+        const result = `${item.body} ${item.firstName} ${item.lastName}`;
+        console.log(result);
+        return result;
+      },
+      (error) => {
+        console.error('Signup system offline');
+        return error;
+      },
+    );
   return resp;
 }
