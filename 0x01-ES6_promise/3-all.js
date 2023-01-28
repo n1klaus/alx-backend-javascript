@@ -5,9 +5,9 @@ export default function handleProfileSignup() {
   const user = createUser();
   const resp = Promise.all([upload, user])
     .then(
-      (data) => {
-        const item = Object.assign({}, ...data);
-        const result = `${item.body} ${item.firstName} ${item.lastName}`;
+      (values) => {
+        const data = Object.assign({}, ...values);
+        const result = `${data.body} ${data.firstName} ${data.lastName}`;
         console.log(result);
         return result;
       },
