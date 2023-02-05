@@ -19,13 +19,17 @@ const student2: Student = {
 };
 const studentList = [student1, student2];
 
-const div: HTMLElement = <HTMLElement>document.getElementById('root');
-const myTable: HTMLTableElement = <HTMLTableElement>div.createElement('table');
+const myParagraph: HTMLElement = document.createElement('h1') as HTMLElement;
+myParagraph.innerHTML = "Students Table!";
+document.body.append(myParagraph);
+
+const myTable: HTMLTableElement = document.createElement('table') as HTMLTableElement;
+
 studentList.map((student, index) => {
-	key = index;
-	const row: HTMLTableRowElement = <HTMLTableRowElement>myTable.insertRow(index);
-	const nameCell = row.insertCell(0);
+	const row: HTMLTableRowElement = myTable.insertRow(index) as HTMLTableRowElement;
+	const nameCell: HTMLTableCellElement = row.insertCell(0) as HTMLTableCellElement;
 	nameCell.innerHTML = student.firstName;
-	const locationCell = row.insertCell(1);
+	const locationCell: HTMLTableCellElement = row.insertCell(1) as HTMLTableCellElement;
 	locationCell.innerHTML = student.location;
 });
+document.body.append(myTable);
