@@ -11,45 +11,58 @@ interface TeacherInterface {
 }
 
 class Director implements DirectorInterface {
-	workFromHome = () => "Working from home";
-	getCoffeeBreak = () => "Getting a coffee break";
-	workDirectorTasks = () => "Getting to director tasks";
+	workFromHome(): string { return "Working from home"; };
+	getCoffeeBreak(): string { return "Getting a coffee break"; };
+	workDirectorTasks(): string { return "Getting to director tasks"; };
 }
 
 class Teacher implements TeacherInterface {
-	workFromHome = () => "Cannot work from home";
-	getCoffeeBreak = () => "Cannot have a coffee break";
-	workTeacherTasks = () => "Getting to work";
+	workFromHome(): string { return "Cannot work from home"; };
+	getCoffeeBreak(): string { return "Cannot have a break"; };
+	workTeacherTasks(): string { return "Getting to work"; };
 }
 
 function createEmployee(salary: string | number): Teacher | Director {
-	if (typeof salary === number && salary < 500) {
+	if (typeof salary === 'number' && salary < 500) {
 		return new Teacher();
 	}
 	return new Director();
 }
 
-type Predicate = (employee: unknown) => boolean;
-type isDirector = ReturnType<Predicate>;
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+
+function isDirector(employee: Teacher | Director): boolean {
+	if (employee instanceof Director) {
+		return true;
+	}
+	return false;
+}
 
 function executeWork(employee: Teacher | Director): void {
 	if (isDirector(employee)) {
-		employee.workDirectorTasks();
+		console.log((employee as Director).workDirectorTasks());
 	}
 	else {
-		employee.workTeacherTasks();
+		console.log((employee as Teacher).workTeacherTasks());
 	}
 }
 
-string Subjects = "Math" | "History";
+executeWork(createEmployee(200));
+executeWork(createEmployee(1000));
 
-function teachClass(todayClass) {
+type Subjects = "Math" | "History";
+
+function teachClass(todayClass: Subjects): string {
 	if (todayClass === "Math") {
+		console.log("Teaching Math");
 		return "Teaching Math";
 	}
 	else if (todayClass === "History") {
+		console.log("Teaching History");
 		return "Teaching History";
 	}
 }
 
-
+teachClass('Math');
+teachClass('History');
