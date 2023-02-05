@@ -1,5 +1,3 @@
-import {RowID, RowElement} from 'interface.ts';
-
-type I = ReturnType<insertRow>;
-type D = ReturnType<deleteRow>;
-type U = ReturnType<updateRow>;
+type I = (row: Object) => number;
+type D = (rowId: number) => void;
+type U = (rowId: number, row: Object) => number;
