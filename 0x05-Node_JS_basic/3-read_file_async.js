@@ -1,10 +1,15 @@
 const fs = require('fs');
 
 function countStudents(file) {
-  try {
-    const students = {};
-    fs.accessSync(file, fs.constants.F_OK && fs.constants.R_OK);
-    const data = fs.readFileSync(file, 'utf-8');
+  const students = {};
+  fs.access(file, fs.constants.F_OK && fs.constants.R_OK, (error) => {
+    if (error) {
+      return Promise.reject(new Error('Cannot load the database'));
+    }
+    return null;
+  });
+  const result = fs.readFile(file, 'utf-8', (error, data) => {
+    if (error) return Promise.reject(error);
     let studentData = data.toString().split('\n').slice(1);
     studentData = studentData.filter((row) => row.split(',').join('') !== '');
     studentData.forEach((row) => {
@@ -24,9 +29,9 @@ function countStudents(file) {
     for (const [subject, firstNames] of Object.entries(students)) {
       console.log(`Number of students in ${subject}: ${firstNames.length}. List: ${firstNames.join(', ')}`);
     }
-  } catch (error) {
-    throw new Error('Cannot load the database');
-  }
+    return students;
+  });
+  return Promise.resolve(result);
 }
 
 module.exports = countStudents;
