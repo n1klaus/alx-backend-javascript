@@ -6,6 +6,10 @@ export default class EVCar extends Car {
     this._range = range;
   }
 
+  static get [Symbol.species]() {
+    return Car;
+  }
+
   cloneCar() {
     const proto = Object.getPrototypeOf;
     const Cls = proto(proto(this)).constructor;
