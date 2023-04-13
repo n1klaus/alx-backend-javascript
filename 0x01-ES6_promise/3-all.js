@@ -1,4 +1,4 @@
-import { uploadPhoto, createUser } from './util';
+import { uploadPhoto, createUser } from './utils';
 
 export default function handleProfileSignup() {
   const upload = uploadPhoto();
@@ -12,7 +12,7 @@ export default function handleProfileSignup() {
         return result;
       },
       (error) => {
-        console.error('Signup system offline');
+        console.log('Signup system offline');
         return error;
       },
     );
