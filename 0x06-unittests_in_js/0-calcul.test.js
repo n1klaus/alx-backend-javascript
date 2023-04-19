@@ -1,6 +1,6 @@
 const assert = require('assert');
-import calculateNumber from './0-calcul';
-import { describe, it } from 'mocha';
+const calculateNumber = require('./0-calcul');
+const { describe, it } = require('mocha');
 
 describe('calculateNumber', function () {
   it('should add positive integer arguments', function () {
