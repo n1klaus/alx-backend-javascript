@@ -1,6 +1,6 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { getPaymentTokenFromAPI } from './6-payment_token';
+const getPaymentTokenFromAPI = require('./6-payment_token');
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
 
 describe('getPaymentTokenFromAPI', function () {
   it('should return answer from promise object', function (done) {
