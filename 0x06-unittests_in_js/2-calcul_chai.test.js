@@ -1,6 +1,6 @@
 const calculateNumber = require('./2-calcul_chai');
 const { describe, it } = require('mocha');
-import { expect } from 'chai';
+const { expect } = require('chai');
 
 describe('calculateNumber with type SUM', function () {
   it('should add positive integer arguments', function () {
