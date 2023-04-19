@@ -1,7 +1,7 @@
-import { describe, it, beforeEach, afterEach } from 'mocha';
-import { expect } from 'chai';
-import { sendPaymentRequestToApi } from './5-payment';
-import sinon from 'sinon';
+const { describe, it, beforeEach, afterEach } = require('mocha');
+const { expect } = require('chai');
+const sendPaymentRequestToApi = require('./5-payment');
+const sinon = require('sinon');
 
 describe('sendPaymentRequestToApi', function () {
   const sandbox = sinon.createSandbox();
