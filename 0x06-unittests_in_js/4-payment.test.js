@@ -1,8 +1,8 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { calculateNumber } from './Utils';
-import { sendPaymentRequestToApi } from './4-payment';
-import sinon from 'sinon';
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
+const { calculateNumber } = require('./Utils');
+const { sendPaymentRequestToApi } = require('./4-payment');
+const sinon = require('sinon');
 
 describe('sendPaymentRequestToApi', function () {
   it('should use calculateNumber to sum the arguments', function () {
