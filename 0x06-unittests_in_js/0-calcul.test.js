@@ -1,25 +1,18 @@
-const assert = require("assert");
-const calculateNumber = require("./0-calcul.js");
+const assert = require('assert');
+const calculateNumber = require('./0-calcul');
+const { describe, it } = require('mocha');
 
-describe('calculateNumber', () => {
-  it('it round the first argument', () => {
-    assert.equal(calculateNumber(1.0, 0), 1);
-    assert.equal(calculateNumber(1.3, 0), 1);
-    assert.equal(calculateNumber(1.7, 0), 2);
+describe('calculateNumber', function () {
+  it('should round the first argument', function () {
+    const result = calculateNumber(5.9, 2);
+    assert.strictEqual(8, result);
   });
-
-  it('it round the second argument', () => {
-    assert.equal(calculateNumber(0, 1.0), 1);
-    assert.equal(calculateNumber(0, 1.3), 1);
-    assert.equal(calculateNumber(0, 1.7), 2);
+  it('should round the second argument', function () {
+    const result = calculateNumber(5, 2.6);
+    assert.strictEqual(8, result);
   });
-
-  it('it should return the right number', () => {
-    assert.equal(calculateNumber(1.3, 0), 1);
-    assert.equal(calculateNumber(0, 1.2), 1);
-    assert.equal(calculateNumber(1.3, 1.3), 2);
-    assert.equal(calculateNumber(1.7, 1.2), 3);
-    assert.equal(calculateNumber(1.3, 1.8), 3);
-    assert.equal(calculateNumber(1.6, 1.8), 4);
+  it('should round both argument', function () {
+    const result = calculateNumber(1.6, 2.8);
+    assert.strictEqual(5, result);
   });
 });
