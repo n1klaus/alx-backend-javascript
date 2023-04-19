@@ -17,8 +17,8 @@ app.get('/available_payments', (req, resp) => {
   const respObject = {
     payment_methods: {
       credit_cards: true,
-      paypal: false
-    }
+      paypal: false,
+    },
   };
   resp.status(200).json(respObject.toString());
 });

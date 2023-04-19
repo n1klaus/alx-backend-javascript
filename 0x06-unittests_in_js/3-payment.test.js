@@ -1,11 +1,11 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
+const sinon = require('sinon');
 const { calculateNumber } = require('./Utils');
 const sendPaymentRequestToApi = require('./3-payment');
-const sinon = require('sinon');
 
-describe('sendPaymentRequestToApi', function () {
-  it('should use calculateNumber to sum the arguments', function () {
+describe('sendPaymentRequestToApi', () => {
+  it('should use calculateNumber to sum the arguments', () => {
     const spiedCalculation = sinon.spy(calculateNumber);
     const spiedRequest = sinon.spy(sendPaymentRequestToApi);
     spiedRequest(100, 20);
