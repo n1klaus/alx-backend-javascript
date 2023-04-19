@@ -1,4 +1,4 @@
-export default function calculateNumber (type, a, b) {
+function calculateNumber (type, a, b) {
   const roundedA = Math.round(a);
   const roundedB = Math.round(b);
   if (type === 'SUM') {
@@ -10,3 +10,4 @@ export default function calculateNumber (type, a, b) {
     return roundedA / roundedB;
   }
 }
+module.exports = calculateNumber;

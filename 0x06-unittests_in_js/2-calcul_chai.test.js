@@ -1,5 +1,5 @@
-import calculateNumber from './2-calcul_chai';
-import { describe, it } from 'mocha';
+const calculateNumber = require('./2-calcul_chai');
+const { describe, it } = require('mocha');
 import { expect } from 'chai';
 
 describe('calculateNumber with type SUM', function () {
