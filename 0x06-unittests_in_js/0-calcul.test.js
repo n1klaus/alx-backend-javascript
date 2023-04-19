@@ -1,4 +1,4 @@
-import assert from 'assert';
+const assert = require('assert');
 import calculateNumber from './0-calcul';
 import { describe, it } from 'mocha';
 
