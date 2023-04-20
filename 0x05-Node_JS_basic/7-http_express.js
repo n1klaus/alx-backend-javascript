@@ -53,11 +53,13 @@ app.get('/students', (req, resp) => {
     .then((data) => {
       body += data;
       resp.writeHead(200, { 'Content-Length': body.length });
-      resp.write(body).end();
+      resp.write(body)
+      resp.end();
     })
     .catch(() => {
       body += '\nCannot load the database';
-      resp.status(404).write(body).end();
+      resp.status(404).write(body);
+      resp.end();
     });
 });
 
