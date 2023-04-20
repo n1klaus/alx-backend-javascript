@@ -6,7 +6,7 @@ const app = http.createServer((req, res) => {
   // res.writeHead(200, { 'Content-Type': 'text/plain', 'Content-Length': body.length });
   res.statusCode = 200;
   res.write(body);
-  res.end('okay');
+  res.end();
 });
 
 app.listen(PORT)
