@@ -6,7 +6,7 @@ console.log(filePath);
 
 class StudentsController {
   static getAllStudents(request, response) {
-    response.status(200);
+    response.type('text');
     let studentInfo = 'This is the list of our students';
     readDatabase(filePath)
       .then((data) => {
@@ -24,7 +24,7 @@ class StudentsController {
 
   static getAllStudentsByMajor(request, response) {
     const field = request.params.major;
-    response.status(200);
+    response.type('text');
     readDatabase(filePath)
       .then((data) => {
         if (!(field in data)) {
