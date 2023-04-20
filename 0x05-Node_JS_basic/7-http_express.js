@@ -53,7 +53,7 @@ app.get('/students', (req, resp) => {
     .then((data) => {
       body += data;
       resp.writeHead(200, { 'Content-Length': body.length });
-      resp.write(body)
+      resp.write(body);
       resp.end();
     })
     .catch(() => {
