@@ -2,7 +2,6 @@ const process = require('process');
 const readDatabase = require('../utils');
 
 const filePath = String(process.argv[2]) || 'database.csv';
-console.log(filePath);
 
 class StudentsController {
   static getAllStudents(request, response) {
