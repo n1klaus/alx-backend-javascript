@@ -10,7 +10,7 @@ function countStudents(file) {
     let studentsData = '';
     fs.access(file, fs.constants.F_OK && fs.constants.R_OK, (error) => {
       if (error) {
-        return reject(new Error('Cannot load the database'));
+        return reject('\nCannot load the database');
       }
       return null;
     });
@@ -59,6 +59,12 @@ const app = http.createServer((req, res) => {
         .then((data) => {
           body += data;
           res.writeHead(200, { 'Content-Length': body.length });
+          res.write(body);
+          res.end();
+        })
+        .catch((err) => {
+          body += err;
+          res.statusCode = 404;
           res.write(body);
           res.end();
         });
